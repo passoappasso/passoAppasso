@@ -5,11 +5,14 @@
 <h3 align="center">passoAppasso</h3>
 
 <p align="center">
-  Progettazione APP per il progetto "C'è anima viva?"
+  Progettazione Web-APP per il progetto "C'è anima viva?"
   <br>
   <br>
   <img src="https://img.shields.io/badge/Modulo-4%20--%205-blue.svg" alt="Module badge">
+  <hr>
 </p>
+
+
 
 ## Obiettivi:
 - Creazione di un'applicazione mobile per itinerari in Città Alta
