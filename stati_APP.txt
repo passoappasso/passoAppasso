@@ -1,0 +1,36 @@
+NOTE per STATI APP
+
+0) solo al primo avvio:
+   - istruzioni d'uso
+   - promessa di premi; azzeramento punti
+   - premio esperienza giornaliero es. 500 pti
+   - preferenze utente (quali?)
+   - impostazione lingua
+   - rilevamento disabilità (?); informazioni segnali standard
+
+1) tutti gli avvii successivi:
+   - stato punteggio
+   - elenco premi raggiungibili oggi
+   - premio esperienza giornaliero es. 500 pti
+   - trova posizione iniziale
+   - scelta percorsi stagionali da proporre
+   - mappa (prima dall'alto poi in soggettiva)
+   - notifiche di prossimità (?); diversi tipi
+     [per es. push a scomparsa]
+
+2) solo su un "punto d'interesse" e/o oggetto:
+   - far comparire immagine, descrizione, video ecc.
+   - 
+
+3) caso deviazione dal percorso:
+   - come reagisce?
+ 
+
+
+OGGETTI UTILIZZABILI (grafici, ecc.)
+- OPEN 
+- VETTORIALI
+
+LINGUE
+- ALL'AVVIO
+- ALMENO ITA/ENG
