@@ -28,7 +28,7 @@ Progetto svolto per il PON (Programma Operativo Nazionale) 2014/2020.
     - Tutor: [Marco Crobu](https://github.com/marcocrobu)
     - Esperto: [Cesare Bottaro](https://github.com/cesarebottaro)
 * Modulo 5 (PassoAppasso)
-    - Tutor: [Antonella Gualteroni](https://github.com/antgua)
+    - Tutor: [Antonella Gualteroni](https://github.com/antgua2)
     - Esperto: [Marco Crobu](https://github.com/marcocrobu)
 
 ## Licenza
