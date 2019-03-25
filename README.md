@@ -24,7 +24,8 @@
 Progetto svolto per il PON (Programma Operativo Nazionale) 2014/2020.
 
 ## Professori di riferimento
-- Tutor: [Marco Crobu](https://github.com/marcocrobu)
+- Tutor 1: [Marco Crobu](https://github.com/marcocrobu)
+- Tutor 2: [Antonella Gualteroni]
 - Esperto: [Cesare Bottaro](https://github.com/cesarebottaro)
 
 ## Licenza
