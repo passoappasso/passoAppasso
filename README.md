@@ -24,9 +24,12 @@
 Progetto svolto per il PON (Programma Operativo Nazionale) 2014/2020.
 
 ## Professori di riferimento
-- Tutor 1: [Marco Crobu](https://github.com/marcocrobu)
-- Tutor 2: [Antonella Gualteroni](https://github.com/antgua)
-- Esperto: [Cesare Bottaro](https://github.com/cesarebottaro)
+* Modulo 4 (versoPassoAppasso)
+    - Tutor: [Marco Crobu](https://github.com/marcocrobu)
+    - Esperto: [Cesare Bottaro](https://github.com/cesarebottaro)
+* Modulo 5 (PassoAppasso)
+    - Tutor: [Antonella Gualteroni](https://github.com/antgua)
+    - Esperto: [Marco Crobu](https://github.com/marcocrobu)
 
 ## Licenza
 Il progetto è rilasciato sotto licenza GNU General Public License v3.0.
