@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!--
+  Customize this policy to fit your own app's needs. For more guidance, see:
+      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+  Some notes:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+      * Enable inline JS: add 'unsafe-inline' to default-src
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+
+  <meta name="theme-color" content="#007aff">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>PON</title>
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="static/icons/apple-touch-icon.png">
+  <link rel="icon" href="static/icons/favicon.png">
+</head>
+<body>
+<div class="page">
+
+  <p>SISTEMARE DIMENSIONE IMMAGINE, SE CLICCHI SUI BOTTONI SCOMPAIONO E RIAPPAIONO LE COCCARDE (MAGARI CAMBIARE IL COLORE DI SFONDO AL POSTO DI NASCONDERLE)</p>
+
+  <div class="navbar">    <div class="block block-strong text-align-center">
+  <!-- we will init this gauge in JavaScript -->
+  <div class="gauge demo-gauge"></div>
+
+  <script>
+    function createCookie(name,value,days) {
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+      }
+      else var expires = "";
+      document.cookie = name+"="+value+expires+"; path=/";
+    }
+
+    function readCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+    }
+
+    function banana(name) {
+      var x = readCookie(name);
+      if(x){
+        punteggio = x;
+      }
+    }
+  
+  </script>
+
+  <p class="segmented segmented-raised">
+      <a href="#" class="button" data-value="2">2%</a>
+      <a href="#" class="button" data-value="5">5%</a>
+      <a href="#" class="button" data-value="20" onclick ="createCookie('potamaps','punteggio',10000)">10%</a>
+      <!--https://www.quirksmode.org/js/cookies.html-->
+      <a href="#" class="button" data-value="40" onclick ="banana('potamaps')">40%</a>
+      <a href="#" class="button" data-value="70">70%</a>
+    </p>
+  <!-- buttons to change gauge value -->
+  <p class="segmented segmented-raised">
+  </p>
+</div></div>
+  <!-- Fixed toolbar goes ALWAYS AFTER navbar -->
+  <div class="toolbar toolbar-bottom"></div>
+
+  <!-- Scrollable page content -->
+  <div class="page-content">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br><br><br><br><br><br><br><!-- non farci caso :) -->
+    <div class="text-align-center">
+    <div class="list simple-list">
+    <ul>
+      <br>
+    
+      <div class="card" value="0" id="prova1">
+            <img src="https://drive.google.com/uc?id=1rl_P315KDLAltu9rVhsb5s_qJmIN616v" alt="Avatar" style="width:100%" class="immagini_card" >
+      </div>
+      
+      <br><br><br>
+
+      <div class="card" value="1" id="prova2">
+          <img src="https://drive.google.com/uc?id=1vXAPJ-gBDZRJvqfpujA-pt28heWkoGGJ" alt="Avatar" style="width:100%" class="immagini_card">
+      </div>
+
+      <br><br><br>
+
+      <div class="card" value="2"  id="prova3">
+          <img src="https://drive.google.com/uc?id=1O_tBUoYzCoTeXhWd3U0KMIO_jQbslZsZ" alt="Avatar" style="width:100%" class="immagini_card">
+      </div>
+
+      <br><br><br>
+      
+      <div class="card" value="3"  id="prova4">
+          <img src="https://drive.google.com/uc?id=12D0IXezM1GanXATvEeeD8GPQTQ0qt-T9" alt="Avatar" style="width:100%" class="immagini_card">
+      </div>
+      
+      <br><br><br>
+    
+    </ul>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+</body>
+</html>
