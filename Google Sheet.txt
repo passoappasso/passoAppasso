@@ -1,0 +1,29 @@
+function addressToPosition() {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var cells = sheet.getActiveRange();
+  
+  var addressColumn = 1;
+  var addressRow;
+    
+  for (addressRow = 1; addressRow <= cells.getNumRows(); ++addressRow) {
+    var address = cells.getCell(addressRow, addressColumn).getValue();
+    cells.getCell(addressRow, addressColumn+1).setValue(address);
+    Logger.log(address);
+  }
+};
+
+function generateMenu() {  
+  var entries = [{
+    name: "Copia dati",
+    functionName: "addressToPosition"
+  }];
+  return entries;
+}
+
+function updateMenu() {
+  SpreadsheetApp.getActiveSpreadsheet().updateMenu('Geocode', generateMenu())
+}
+
+function onOpen() {
+  SpreadsheetApp.getActiveSpreadsheet().addMenu('Geocode', generateMenu());
+};
