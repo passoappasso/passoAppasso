@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Simple Leaflet Map</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet"
+        href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
+    />
+</head>
+<body>
+
+    <div id="map" style="width: 500px; height: 500px"></div>
+
+    <script
+        src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
+
+    <script>
+	var marchi = [
+		["Leoni",45.70453, 9.66218],//--- Qui si aggiungo i marchi
+		["Pietre",45.70385, 9.6637]
+		];
+        var map = L.map('map', { attributionControl:false }).setView([45.7039869, 9.6628565], 16);//--- Centro mappa città alta, zoom
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
+		for (var i = 0; i < marchi.length; i++) {//---Creazione dei marchi
+			marker = new L.marker([marchi[i][1],marchi[i][2]])
+				.bindPopup(marchi[i][0])//--- Opzioni marchi Popup
+				.addTo(map);//--- Aggiunta dei marchi
+		}
+    </script>
+
+
+</body>
+</html>
