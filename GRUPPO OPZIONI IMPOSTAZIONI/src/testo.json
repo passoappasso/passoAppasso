@@ -1,0 +1,44 @@
+{
+    "imp": {
+      "eng": {
+        "eng": "English",
+        "ita": "Inglese"
+      },
+      "ita": {
+        "eng": "Italian",
+        "ita": "Italiano"
+      },
+      "imp": {
+        "eng": "Settings",
+        "ita": "Impostazioni"
+      },
+      "ling": {
+        "eng": "Language",
+        "ita": "Lingua"
+      },
+      "acc": {
+        "eng": "Accessibility",
+        "ita": "Accessibilità"
+      },
+      "per": {
+        "eng": "Path without stairs",
+        "ita": "Perscorsi senza scale"
+      },
+      "funz": {
+        "eng": "This function allows you to see only the routes that are not in stairs or other architectural barriers",
+        "ita": "Questa funzione permette di visualizzare solamente i perscorsi che non contengono scale o altre barriere architettoniche"
+      },
+      "sub": {
+        "eng": "Subtitles",
+        "ita": "Sottotitoli"
+      },
+      "att": {
+        "eng": "Able/Disable",
+        "ita": "Attiva/Disattiva"
+      },
+      "attdis": {
+        "eng": "Able or disable subtitles will change video visualizzation",
+        "ita": "Attivare o disattivare i sottotitoli modificherà visualizzazione dei video."
+      }
+    }
+  }
