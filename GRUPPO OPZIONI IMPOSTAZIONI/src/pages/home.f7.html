@@ -1,0 +1,182 @@
+<template>
+  <div class="page" data-name="home">
+    <script>
+      var data;
+      // var per gesione lingua
+      var nomePagina = "imp";
+      var lingua = ["eng", "ita"];
+      var selezionata;
+      // link file JSON
+      // link edit: https://jsonbin.io/5cd046cbc07f283511e12931
+      var jsonFile = "https://raw.githubusercontent.com/passoappasso/passoAppasso/master/GRUPPO%20OPZIONI%20IMPOSTAZIONI/src/testo.json";
+
+      controllaLingua();
+      
+      // funzione che ottiene la lingua di coockie
+      function controllaLingua () {
+        var cookieValue = getCook('lingua');
+        selezionata = 1;
+        document.getElementById("ita-radio").checked = true;
+
+        if(cookieValue == "0") {
+          selezionata = 0;
+          document.getElementById("eng-radio").checked = true;
+        }
+        
+        cookieValue = getCook('sottotitoli');
+        if (cookieValue == '1') {
+          document.getElementById("togBtn").checked = true;
+        }
+
+      }
+
+      function getCook(cookiename) {
+        var cookiestring=RegExp(""+cookiename+"[^;]+").exec(document.cookie);
+        return decodeURIComponent(!!cookiestring ? cookiestring.toString().replace(/^[^=]+./,"") : "");
+      }
+
+      // JSON file to JS Object
+      function readTextFile(file, callback) {
+          var rawFile = new XMLHttpRequest();
+          rawFile.overrideMimeType("application/json");
+          rawFile.open("GET", file, true);
+          rawFile.onreadystatechange = function() {
+              if (rawFile.readyState === 4 && rawFile.status == "200") {
+                  callback(rawFile.responseText);
+              }
+          }
+          rawFile.send(null);
+          
+      }
+
+      // esecuzione funzione
+      readTextFile(jsonFile, function(text){
+          data = JSON.parse(text);
+          dataToTag(data);
+      });
+      
+      // modifica lingua dei tag html
+      function dataToTag (data) {
+        var a = data[nomePagina]
+        Object.getOwnPropertyNames(a).forEach(
+          function (val, idx, array) {
+            document.getElementById(val).innerHTML = a[val][lingua[selezionata]];
+          }
+        );
+        
+      }
+
+      // eseguita quando si clicca su un radio per la scelta della lingua
+      function cambiaLingua(i) {
+        document.cookie = "lingua="+i;
+        location.reload();
+      }
+
+      // eseguita quando si seleziona o si deseleziona la checkbox dei sottotitoli
+      function sottotitoli () {
+        if (event.target.checked) {
+          console.log('checked');
+          document.cookie = 'sottotitoli=1';
+        } else {
+          console.log('not checked');
+          document.cookie = 'sottotitoli=0';
+        }
+      }
+
+      function linguaSottotitoliUrl (url) {
+        var lingua = getCook('lingua');
+        var sottotitoli = getCook('sottotitoli');
+
+        var len = 'it';
+
+        if (lingua == '0') {
+          var len = 'en';
+        }
+
+        var urlLingua = '?&hl=' + len + '&cc_lang_pref=' + len;
+        url += urlLingua;
+
+        if (sottotitoli == '1') {
+          url += '&cc_load_policy=1';
+        }
+
+        return url;
+      }
+
+      window.onload = function() {
+        
+      };
+
+    </script>
+
+
+
+
+    <!-- Top Navbar -->
+    <div class="navbar">
+      <div class="navbar-inner" style="background-color: black">
+        <div class="title-large-text" id="imp" style="text-align:center; font-style:arial; color: white">Impostazioni</div>
+      </div>
+    </div>
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="block-title" id="ling" style="font-style:arial">Lingua</div>
+      <div class="list">
+          <ul>
+            <li>
+              <label class="item-radio item-content">
+                <input id="ita-radio" type="radio" name="demo-radio" value="Italiano" onclick="cambiaLingua(1)"/>
+                <i class="icon icon-radio"></i>
+                <div class="item-inner">
+                  <div class="item-title" id="ita">Italiano</div>
+                </div>
+              </label>
+            </li>
+            <li>
+              <label class="item-radio item-content">
+                <input id="eng-radio"type="radio" name="demo-radio" value="Inglese" onclick="cambiaLingua(0)"/>
+                <i class="icon icon-radio"></i>
+                <div class="item-inner">
+                  <div class="item-title" id="eng">Inglese</div>
+                </div>
+              </label>
+            </li>
+          </ul>
+        </div>
+        
+      <div class="block-title" id="acc">Accessibilità</div>
+      <div class="block block-strong">
+          <div class="item-inner">
+              <div class="item-title" id="per">Percorsi senza scale</div>
+                <div class="item-after">
+                  <label class="toggle toggle-init">
+                    <input type="checkbox">
+                    <span class="toggle-icon"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="block-footer">
+                  <p id="funz">Questa funzione permette di visualizzare solamente i perscorsi che non contengono scale o altre barriere architettoniche</p>
+              </div>
+      </div>
+ <!--?&hl=it&cc_lang_pref=it&cc_load_policy=1-->
+      <div class="block block-strong">
+        <div class="item-inner">
+              <label class="switch">
+                  Sottotitoli<input type="checkbox" id="togBtn" onchange="sottotitoli()" value="false" name="disableYXLogo">
+                <div class="slider round"></div>
+              </label>
+              <div class="block-footer">
+                  <p id="attdis">Attivare o disattivare i sottotitoli modificherà la visualizzazione dei video.</p>
+              </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+</template>
+<script>
+export default {}
+</script>
