@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"></meta>
+  <!--
+  Customize this policy to fit your own app's needs. For more guidance, see:
+      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+  Some notes:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+      * Enable inline JS: add 'unsafe-inline' to default-src
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
+ 
+  <meta name="theme-color" content="#007aff">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>My App</title>
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="static/icons/apple-touch-icon.png">
+  <link rel="icon" href="static/icons/favicon.png">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
+
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
+  <!-- built styles file will be auto injected -->
+</head>
+<body>
+  
+  <div id="app">
+
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar"></div>
+    
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <center><div class="title">MAPPA</div></center>
+              
+            </div>
+            
+          </div>
+            <center>
+               <div id="map" style="width: 500px; height: 500px"></div>
+            </center>
+          <div class="page-content">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  </div>
+  <!-- built script files will be auto injected -->
+    
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
+  <script src="https://rawgithub.com/mpetazzoni/leaflet-gpx/master/gpx.js"></script>
+  <script type="application/javascript">
+      <script
+        src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
+
+    <script>
+	var marchi = [
+		
+        var map = L.map('map', { attributionControl:false }).setView([45.7039869, 9.6628565], 16);//--- Centro mappa città alta, zoom
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
+		for (var i = 0; i < marchi.length; i++) {//---Creazione dei marchi
+			marker = new L.marker([marchi[i][1],marchi[i][2]])
+				.bindPopup(marchi[i][0])//--- Opzioni marchi Popup
+				.addTo(map);//--- Aggiunta dei marchi
+		}
+    </script>
+
+
+    <script>
+	var marchi = [
+			["Chiostro piccolo Monastero S.Agostino",45.705013, 9.671102],//--- Qui si aggiungo i marchi
+		["Trigramma",45.703779, 9.669147],
+		["Stemma Benaglio",45.703239, 9.667789],
+		["Portale Palazzo (ex Pelliccioli)",45.703028 ,9.667171],
+		["Portale Palazzo Pesenti", 45.703129,9.666129],
+		["Palazzo Colleoni",45.702444 ,9.6664073],
+		["Palazzo Medolago", 45.701611,9.662998],
+		["Palazzo Terzi",45.702534 ,9.662861],
+		["Sarcofago", 45.70295, 9.661879],
+		["Mastro Fredo", 45.703039, 9.662593],
+		["San Vincenzo", 45.703521, 9.663597],
+		["Lavatoio", 45.703597, 9.663805],
+		["Fontana",45.703728 , 9.664386],
+		["Chiostro delle Arche Convento di San Francesco",45.70501 ,9.664973 ],
+		["Stemma Tassis", 45.705463, 9.6629],
+		["Iscrizione su portale",45.705725 , 9.661654],
+		["<a href=\"\">Colonna (luogo ex basilica)</a>", 45.706058, 9.656758],
+		["Porta S.Alessandro",45.706436 , 9.657632],
+		["Reperti Sepolcrali", 45.70579, 9.659214],
+		["Bassorilievo in Torre della Campanella",45.705464 , 9.659841],
+		["Vera da pozzo",45.70577 , 9.660043],
+		["Allegorie", 45.705012, 9.661012],
+		["Fontana Contarini", 45.704069,9.662949 ],
+		["Unità di misura",45.703413 , 9.662454],
+		["Tagli di pietra + Leone docile",45.703711 ,9.662407 ]
+		];
+        var map = L.map('map', { attributionControl:false }).setView([45.7039869, 9.6628565], 16);//--- Centro mappa città alta, zoom
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
+		for (var i = 0; i < marchi.length; i++) {//---Creazione dei marchi
+			marker = new L.marker([marchi[i][1],marchi[i][2]])
+				.bindPopup(marchi[i][0])//--- Opzioni marchi Popup
+				.addTo(map);//--- Aggiunta dei marchi
+		}
+    </script>
+
+
+
+  </body>
+</html>
