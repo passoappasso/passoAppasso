@@ -1,0 +1,103 @@
+<template>
+  <div class="page" data-name="opzioni">
+    <script>
+      var data;
+
+      function readTextFile(file, callback) {
+          var rawFile = new XMLHttpRequest();
+          rawFile.overrideMimeType("application/json");
+          rawFile.open("GET", file, true);
+          rawFile.onreadystatechange = function() {
+              if (rawFile.readyState === 4 && rawFile.status == "200") {
+                  callback(rawFile.responseText);
+              }
+          }
+          rawFile.send(null);
+      }
+
+      // link edit: https://jsonbin.io/5cb497cb659dee31e59d9f78
+      readTextFile("https://api.jsonbin.io/b/5cb497cb659dee31e59d9f78", function(text){
+          data = JSON.parse(text);
+          console.log(data);
+      });
+
+      function stamp () {
+        console.log(data);
+
+      }
+    </script>
+    <!-- Top Navbar -->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="title-large-text" id="imp">Impostazioni</div>
+      </div>
+    </div>
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="block-title" id="ling">Lingua</div>
+      <div class="list">
+          <ul>
+            <li>
+              <label class="item-radio item-content">
+                <input type="radio" name="demo-radio" value="Italiano" checked />
+                <i class="icon icon-radio"></i>
+                <div class="item-inner">
+                  <div class="item-title" id="ita">Italiano</div>
+                </div>
+              </label>
+            </li>
+            <li>
+              <label class="item-radio item-content">
+                <input type="radio" name="demo-radio" value="Inglese"/>
+                <i class="icon icon-radio"></i>
+                <div class="item-inner">
+                  <div class="item-title" id="eng">Inglese</div>
+                </div>
+              </label>
+            </li>
+            <li>
+                <div class="item-inner">
+                <button style="height:35px;width:200px;left:40px" id="conf"class="col button button-fill" onclick="stamp()">Conferma</button>
+                </div>
+              </li>
+          </ul>
+        </div>
+        
+      <div class="block-title" id="acc">Accessibilità</div>
+      <div class="block block-strong">
+          <div class="item-inner">
+              <div class="item-title" id="per">Percorsi senza scale</div>
+                <div class="item-after">
+                  <label class="toggle toggle-init">
+                    <input type="checkbox">
+                    <span class="toggle-icon"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="block-footer">
+                  <p id="funz">Questa funzione permette di visualizzare solamente i perscorsi che non contengono scale o altre barriere architettoniche</p>
+              </div>
+      </div>
+
+      <div class="block-title" id="sub">Sottotitoli</div>
+      <div class="block block-strong">
+        <div class="item-inner">
+          <div class="item-title" id="att">Attiva/disattiva</div>
+          <div class="item-after">
+            <label class="toggle toggle-init">
+              <input type="checkbox">
+              <span class="toggle-icon"></span> <!--?cc_load_policy=1-->
+            </label>
+          </div>
+        </div>
+        <div class="block-footer">
+            <p id="attdis">Attivare o disattivare i sottotitoli modificherà visualizzazione dei video.</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</template>
+<script>
+export default {}
+</script>

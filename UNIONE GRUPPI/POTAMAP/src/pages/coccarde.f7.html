@@ -1,0 +1,103 @@
+<template>
+    <div class="page" data-name="coccarde">
+     
+        <p>SISTEMARE DIMENSIONE IMMAGINE, SE CLICCHI SUI BOTTONI SCOMPAIONO E RIAPPAIONO LE COCCARDE (MAGARI CAMBIARE IL COLORE DI SFONDO AL POSTO DI NASCONDERLE)</p>
+
+        <div class="navbar">    <div class="block block-strong text-align-center">
+        <!-- we will init this gauge in JavaScript -->
+        <div class="gauge demo-gauge"></div>
+      
+        <script>
+          function createCookie(name,value,days) {
+            if (days) {
+              var date = new Date();
+              date.setTime(date.getTime()+(days*24*60*60*1000));
+              var expires = "; expires="+date.toGMTString();
+            }
+            else var expires = "";
+            document.cookie = name+"="+value+expires+"; path=/";
+          }
+      
+          function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+              var c = ca[i];
+              while (c.charAt(0)==' ') c = c.substring(1,c.length);
+              if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+          }
+      
+          function banana(name) {
+            var x = readCookie(name);
+            if(x){
+              punteggio = x;
+            }
+          }
+        
+        </script>
+      
+        <p class="segmented segmented-raised">
+            <a href="#" class="button" data-value="2">2%</a>
+            <a href="#" class="button" data-value="5">5%</a>
+            <a href="#" class="button" data-value="20" onclick ="createCookie('potamaps','punteggio',10000)">10%</a>
+            <!--https://www.quirksmode.org/js/cookies.html-->
+            <a href="#" class="button" data-value="40" onclick ="banana('potamaps')">40%</a>
+            <a href="#" class="button" data-value="70">70%</a>
+          </p>
+        <!-- buttons to change gauge value -->
+        <p class="segmented segmented-raised">
+        </p>
+      </div></div>
+        <!-- Fixed toolbar goes ALWAYS AFTER navbar -->
+        <div class="toolbar toolbar-bottom"></div>
+      
+        <!-- Scrollable page content -->
+        <div class="page-content">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br><br><br><br><br><br><br><br><!-- non farci caso :) -->
+          <div class="text-align-center">
+          <div class="list simple-list">
+          <ul>
+            <br>
+          
+            <div class="card" value="0" id="prova1">
+                  <img src="https://drive.google.com/uc?id=1rl_P315KDLAltu9rVhsb5s_qJmIN616v" alt="Avatar" style="width:100%" class="immagini_card" >
+            </div>
+            
+            <br><br><br>
+      
+            <div class="card" value="1" id="prova2">
+                <img src="https://drive.google.com/uc?id=1vXAPJ-gBDZRJvqfpujA-pt28heWkoGGJ" alt="Avatar" style="width:100%" class="immagini_card">
+            </div>
+      
+            <br><br><br>
+      
+            <div class="card" value="2"  id="prova3">
+                <img src="https://drive.google.com/uc?id=1O_tBUoYzCoTeXhWd3U0KMIO_jQbslZsZ" alt="Avatar" style="width:100%" class="immagini_card">
+            </div>
+      
+            <br><br><br>
+            
+            <div class="card" value="3"  id="prova4">
+                <img src="https://drive.google.com/uc?id=12D0IXezM1GanXATvEeeD8GPQTQ0qt-T9" alt="Avatar" style="width:100%" class="immagini_card">
+            </div>
+            
+            <br><br><br>
+          
+          </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      
+    </div>
+  </template>
+  <script>
+  export default {}
+  </script>
