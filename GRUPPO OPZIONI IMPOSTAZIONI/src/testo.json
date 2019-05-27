@@ -36,7 +36,7 @@
         "eng": "Able/Disable",
         "ita": "Attiva/Disattiva"
       },
-      "attivadisattiva": {
+      "togBtn": {
         "eng": "Able or disable subtitles will change video visualizzation",
         "ita": "Attivare o disattivare i sottotitoli modificherà visualizzazione dei video."
       }
